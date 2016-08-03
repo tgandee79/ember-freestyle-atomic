@@ -49,10 +49,10 @@
   "dependencies": {
     "ember-cli-babel": "^5.1.6",
     "ember-cli-htmlbars": "^1.0.3",
-    "ember-freestyle": "~0.2.12"
+    "ember-freestyle": "0.2.12",
+    "ember-remarkable": "chrislopresto/ember-remarkable#highlightjs-css-compatibility"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config",
     "after": [
       "ember-freestyle"
     ]
