@@ -14,4 +14,5 @@ module.exports = {
   afterInstall: function(options) {
     console.log('After Install: Ember-Freestyle-Atomic');
     // Perform extra work here.
+  }
 };
