@@ -1,15 +1,32 @@
 /*jshint node:true*/
+var Blueprint  = require('../../lib/models/blueprint');
+var Promise    = require('../../lib/ext/promise');
+var merge      = require('lodash/merge');
+
+
 module.exports = {
-  name: 'ember-freestyle',
+  description: ''
 
-  normalizeEntityName: function() {},
+  // locals: function(options) {
+  //   // Return custom template variables here.
+  //   return {
+  //     foo: options.entity.options.foo
+  //   };
+  // }
 
-  afterInstall: function() {
-    var bowerPackages = [
-      { name: 'remarkable', target: '1.6.2' },
-      { name: 'highlightjs', target: '9.1.0' }
-    ];
+  afterInstall: function(options) {
+    console.log('After Install: Ember-Freestyle-Atomic');
+    // Perform extra work here.
+    var mainBlueprint = Blueprint.lookup("route", {
+      ui: this.ui,
+      analytics: this.analytics,
+      project: this.project
+    });
 
-    return this.addBowerPackagesToProject(bowerPackages);
+    return Promise.resolve()
+      .then(function() {
+        console.log('After Install: Ember-Freestyle-Atomic - Add Route');
+        return mainBlueprint["install"](options);
+      });
   }
 };

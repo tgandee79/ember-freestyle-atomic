@@ -1,0 +1,1 @@
+export { default } from 'ember-freestyle-atomic/components/style-guide';
