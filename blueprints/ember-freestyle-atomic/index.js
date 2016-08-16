@@ -26,9 +26,9 @@ module.exports = {
     //    fs.unlink("app/styles/app.css");
     //  }
    });
-
+   var self = this;
    return this.addPackageToProject("ember-remarkable", "^3.1.2").then(function() {
-     return this.insertIntoFile('app/router.js', routerStr, {
+     return self.insertIntoFile('app/router.js', routerStr, {
        after: 'Router.map(function() {'
      });
    });
