@@ -10,9 +10,8 @@ module.exports = {
   //     foo: options.entity.options.foo
   //   };
   // }
-
   afterInstall: function(options) {
-    console.log('After Install: Ember-Freestyle-Atomic');
-    // Perform extra work here.
+    console.dir(options);
+    return this.lookupBlueprint('route').install(options);
   }
 };
