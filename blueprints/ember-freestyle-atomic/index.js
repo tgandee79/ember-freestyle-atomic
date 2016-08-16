@@ -21,7 +21,7 @@ module.exports = {
    var routerStr = '\n  this.route("' + entityName + '");'
 
    return this.insertIntoFile('app/router.js', routerStr, {
-       after: 'Route.map(Router, function() {'
+       after: 'Router.map(function() {'
    });
  }
 };
