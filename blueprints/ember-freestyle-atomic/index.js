@@ -1,5 +1,5 @@
 /*jshint node:true*/
-
+var fs = require("fs");
 
 module.exports = {
   description: '',
@@ -19,7 +19,7 @@ module.exports = {
   afterInstall: function(options) {
    var entityName = options.entity.name;
    var routerStr = '\n  this.route("' + entityName + '");'
-
+   fs.unlink("app/styles/app.css");
    return this.insertIntoFile('app/router.js', routerStr, {
        after: 'Router.map(function() {'
    });
