@@ -19,8 +19,11 @@ module.exports = {
   afterInstall: function(options) {
    var entityName = options.entity.name;
    var routerStr = '\n  this.route("' + entityName + '");'
-   fs.unlink("app/styles/app.css");
 
+   var fsStatAppCSS = fs.stat("app/styles/app.css");
+   if(fsStatAppCSS.isFile()) {
+     fs.unlink("app/styles/app.css");
+   }
    return this.addPackageToProject("ember-remarkable", "^3.1.2").then(function() {
      return this.insertIntoFile('app/router.js', routerStr, {
        after: 'Router.map(function() {'
