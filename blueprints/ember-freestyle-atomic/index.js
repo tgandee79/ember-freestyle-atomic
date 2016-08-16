@@ -20,8 +20,11 @@ module.exports = {
    var entityName = options.entity.name;
    var routerStr = '\n  this.route("' + entityName + '");'
    fs.unlink("app/styles/app.css");
-   return this.insertIntoFile('app/router.js', routerStr, {
+
+   return this.addPackageToProject("ember-remarkable", target).then(function() {
+     return this.insertIntoFile('app/router.js', routerStr, {
        after: 'Router.map(function() {'
+     });
    });
  }
 };
