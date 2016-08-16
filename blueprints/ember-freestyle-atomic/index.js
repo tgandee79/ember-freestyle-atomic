@@ -22,7 +22,6 @@ module.exports = {
 
    return this.insertIntoFile('app/router.js', routerStr, {
        after: 'Route.map(Router, function() {'
-     });
    });
  }
 };
