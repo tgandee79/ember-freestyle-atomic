@@ -1,6 +1,12 @@
 import Ember from 'ember';
+import FreestyleController from 'ember-freestyle/controllers/freestyle';
 
-export default Ember.Controller.extend({
+const { computed, inject } = Ember;
+
+export default FreestyleController.extend({
+  emberFreestyle: inject.service(),
+  showCode: computed.alias('emberFreestyle.showCode'),
+
   // Styleguide Color Palette
   // Match Colors from "_variables.scss" or "_settings.scss"
   colorPalette: {
